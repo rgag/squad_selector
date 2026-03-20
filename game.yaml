@@ -1,0 +1,84 @@
+game:
+  duration: 70
+  formation: "3-5-2"
+  sub_windows:
+    min: 2
+    max: 4
+  num_plans: 5
+  constraints:
+    # List pairs of players where at least one must always be on the pitch.
+    # Remove or leave empty if not needed.
+    never_bench_together:
+      - [Harry, Louisa]
+      - [Charlotte, Daisy]
+      - [Jess, Izzy]
+
+players:
+  - name: Tadi
+    positions: [GK]
+    min_minutes: 70
+    max_minutes: 70
+    must_start: true   # always starts
+
+  - name: Nick
+    positions: [DEF]
+    min_minutes: 70
+    max_minutes: 70
+
+  - name: Hayley
+    positions: [DEF, DM]
+    min_minutes: 70
+    max_minutes: 70
+
+  - name: George
+    positions: [DEF]
+    min_minutes: 70
+    max_minutes: 70
+
+  - name: Harry
+    positions: [DM]
+    min_minutes: 35
+    max_minutes: 70
+
+  - name: Louisa
+    positions: [DM]
+    min_minutes: 35
+    max_minutes: 70
+
+  - name: Jess
+    positions: [AM, DM]
+    min_minutes: 35
+    max_minutes: 70
+
+  - name: Zoe
+    positions: [RM, LM]
+    min_minutes: 35
+    max_minutes: 70
+
+  - name: Izzy
+    positions: [LM, RM, DM]
+    min_minutes: 35
+    max_minutes: 70
+
+  - name: Nicky
+    positions: [RM]
+    min_minutes: 35
+    max_minutes: 70
+    must_bench: true
+
+  - name: Emily
+    positions: [AM, FWD]
+    min_minutes: 35
+    max_minutes: 70
+
+  - name: Charlotte
+    positions: [LM, RM, FWD]
+    min_minutes: 35
+    max_minutes: 70
+
+  - name: Daisy
+    positions: [FWD]
+    min_minutes: 35
+    max_minutes: 70
+    must_bench: true
+    # must_bench: true   # use this to make Daisy start on the bench
