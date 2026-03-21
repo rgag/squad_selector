@@ -200,6 +200,7 @@ class Plan:
     bench: list[str]
     sub_events: list[SubEvent]
     minutes: dict[str, list[int]]  # player_name -> list of stint lengths
+    timeline: dict[str, list[dict]]  # player_name -> list of segments
     score: float = 0.0
 
 
@@ -359,13 +360,16 @@ def find_diverse_starting_xis(
 # Sub window timing generation
 # ---------------------------------------------------------------------------
 
-def generate_window_timings(duration: int, n_windows: int) -> list[list[int]]:
+def generate_window_timings(duration: int, n_windows: int, equal_periods: bool = False) -> list[list[int]]:
     timings_set: set[tuple] = set()
 
     step = duration / (n_windows + 1)
     evenly = tuple(int(round(step * (i + 1))) for i in range(n_windows))
     if len(set(evenly)) == n_windows:
         timings_set.add(evenly)
+
+    if equal_periods:
+        return [list(t) for t in timings_set]
 
     half = duration // 2
     if n_windows == 1:
@@ -399,35 +403,81 @@ def compute_minutes(
     sub_events: list[SubEvent],
     duration: int,
     all_player_names: list[str],
-) -> dict[str, list[int]]:
+    slot_type_map: dict[str, str],
+) -> tuple[dict[str, list[int]], dict[str, list[dict]]]:
+    """Returns (stints, timeline) where:
+    - stints: player_name -> list of on-pitch stint lengths
+    - timeline: player_name -> list of segments, each {"type": "pitch"/"bench", "minutes": N, "position": X}
+    """
     stints: dict[str, list[int]] = {p: [] for p in all_player_names}
+    timeline: dict[str, list[dict]] = {p: [] for p in all_player_names}
     stint_start: dict[str, Optional[int]] = {}
+    player_slot: dict[str, Optional[str]] = {}  # player -> current slot name
     on_field = set(starting_xi.values())
+
+    # Build reverse map: player -> slot
+    slot_to_player = dict(starting_xi)
     for p in on_field:
         stint_start[p] = 0
+    for slot_name, player_name in starting_xi.items():
+        player_slot[player_name] = slot_name
     for p in all_player_names:
         if p not in stint_start:
             stint_start[p] = None
+            player_slot[p] = None
+
+    # Track bench start times
+    bench_start: dict[str, Optional[int]] = {}
+    for p in all_player_names:
+        if p not in on_field:
+            bench_start[p] = 0
+        else:
+            bench_start[p] = None
 
     for ev in sub_events:
         t = ev.time
-        for on_p, off_p, _ in ev.swaps:
+        for on_p, off_p, slot_name in ev.swaps:
+            # Close the off_p's pitch stint
             if stint_start.get(off_p) is not None:
                 elapsed = t - stint_start[off_p]
                 if elapsed > 0:
                     stints[off_p].append(elapsed)
+                    pos = slot_type_map.get(player_slot[off_p], "?")
+                    timeline[off_p].append({"type": "pitch", "minutes": elapsed, "position": pos})
                 stint_start[off_p] = None
+            # off_p goes to bench
+            bench_start[off_p] = t
+            player_slot[off_p] = None
+
+            # Close the on_p's bench stint
+            if bench_start.get(on_p) is not None:
+                bench_elapsed = t - bench_start[on_p]
+                if bench_elapsed > 0:
+                    timeline[on_p].append({"type": "bench", "minutes": bench_elapsed})
+                bench_start[on_p] = None
+            # on_p goes on pitch
+            stint_start[on_p] = t
+            player_slot[on_p] = slot_name
+            slot_to_player[slot_name] = on_p
+
             on_field.discard(off_p)
             on_field.add(on_p)
-            stint_start[on_p] = t
 
+    # Close remaining stints at end of game
     for p in on_field:
         if stint_start.get(p) is not None:
             remaining = duration - stint_start[p]
             if remaining > 0:
                 stints[p].append(remaining)
+                pos = slot_type_map.get(player_slot[p], "?")
+                timeline[p].append({"type": "pitch", "minutes": remaining, "position": pos})
+    for p in all_player_names:
+        if bench_start.get(p) is not None:
+            remaining = duration - bench_start[p]
+            if remaining > 0:
+                timeline[p].append({"type": "bench", "minutes": remaining})
 
-    return stints
+    return stints, timeline
 
 
 # ---------------------------------------------------------------------------
@@ -660,6 +710,7 @@ def generate_plans(
     duration = game["duration"]
     win_min = game["sub_windows"]["min"]
     win_max = game["sub_windows"]["max"]
+    equal_periods = game["sub_windows"].get("equal_periods", False)
     never_bench_together = game.get("never_bench_together", [])
 
     slots = tree.get_slots()
@@ -691,7 +742,7 @@ def generate_plans(
             if len(players) == n_slots:
                 continue
 
-            for timings in generate_window_timings(duration, n_windows):
+            for timings in generate_window_timings(duration, n_windows, equal_periods):
                 sub_events = generate_subs_for_windows(
                     timings, starting_xi, bench_names, slots,
                     players_by_name, duration, never_bench_together, tree,
@@ -701,8 +752,10 @@ def generate_plans(
                 if len(sub_events) < win_min:
                     continue
 
-                stints = compute_minutes(
-                    starting_xi, sub_events, duration, [p.name for p in players]
+                slot_type_map = {s["name"]: s["type"] for s in slots}
+                stints, timeline = compute_minutes(
+                    starting_xi, sub_events, duration,
+                    [p.name for p in players], slot_type_map,
                 )
 
                 sig = (
@@ -718,6 +771,7 @@ def generate_plans(
                     bench=bench_names,
                     sub_events=sub_events,
                     minutes=stints,
+                    timeline=timeline,
                     score=score_plan(stints, players),
                 ))
 
@@ -759,6 +813,7 @@ def plans_to_yaml(plans: list[Plan], game: dict, config_path: str) -> dict:
             plan_dict["minutes"][name] = {
                 "total": sum(stints),
                 "stints": stints,
+                "timeline": plan.timeline.get(name, []),
             }
         output["plans"].append(plan_dict)
     return output
@@ -856,8 +911,13 @@ def main():
             print("Error: could not build a valid starting lineup.")
             diagnose_impossible(game, players, tree)
             sys.exit(1)
+        slot_type_map = {s["name"]: s["type"] for s in slots}
         stints = {p: [duration] for p in xi.values()}
-        plan = Plan(starting_xi=xi, bench=[], sub_events=[], minutes=stints)
+        timeline = {}
+        for slot_name, player_name in xi.items():
+            pos = slot_type_map.get(slot_name, "?")
+            timeline[player_name] = [{"type": "pitch", "minutes": duration, "position": pos}]
+        plan = Plan(starting_xi=xi, bench=[], sub_events=[], minutes=stints, timeline=timeline)
         output = plans_to_yaml([plan], game, args.config)
         with open(args.output, "w") as f:
             yaml.dump(output, f, default_flow_style=False, sort_keys=False)

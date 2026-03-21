@@ -1,4 +1,4 @@
-Hockey Substitution Plans (from sass_game.yaml, 50 min)
+Hockey Substitution Plans (from sass_game.yaml, 48 min)
 
 ==================================================
 === PLAN 1 of 5 ===
@@ -6,70 +6,63 @@ Hockey Substitution Plans (from sass_game.yaml, 50 min)
 
 Starting lineup:
   GK : Kayden
-  LB : Alex
-  RB : Max
+  LB : Max
+  RB : Alex
   LM : Harry
-  RM : Jacob
-  CM : Richard
+  RM : Richard
+  CM : Jacob
   CF : Josh
 
   Bench: Ru, Lewis, Jake
 
-Substitution at 15 min:
-  Ru ON (LB)  <->  Alex OFF
-  Lewis ON (RM)  <->  Jacob OFF
-  Jake ON (RB)  <->  Max OFF
+Substitution at 12 min:
+  Ru ON (RB)  <->  Alex OFF
+  Lewis ON (LM)  <->  Harry OFF
+  Jake ON (LB)  <->  Max OFF
   GK : Kayden
-  LB : Ru
-  RB : Jake
-  LM : Harry
-  RM : Lewis
-  CM : Richard
-  CF : Josh
-  Bench: Alex, Jacob, Max
-
-Substitution at 25 min:
-  Alex ON (LB)  <->  Ru OFF
-  Jacob ON (LM)  <->  Harry OFF
-  Max ON (RB)  <->  Jake OFF
-  GK : Kayden
-  LB : Alex
-  RB : Max
-  LM : Jacob
-  RM : Lewis
-  CM : Richard
-  CF : Josh
-  Bench: Ru, Harry, Jake
-
-Substitution at 35 min (half time):
-  Ru ON (LB)  <->  Alex OFF
-  Jake ON (RB)  <->  Max OFF
-  GK : Kayden
-  LB : Ru
-  RB : Jake
-  LM : Jacob
-  RM : Lewis
-  CM : Richard
-  CF : Josh
-  Bench: Harry, Alex, Max
-
-Substitution at 45 min:
-  Harry ON (LM)  <->  Jacob OFF
-  Jacob ON (CM)  <->  Richard OFF
-  GK : Kayden
-  LB : Ru
-  RB : Jake
-  LM : Harry
-  RM : Lewis
+  LB : Jake
+  RB : Ru
+  LM : Lewis
+  RM : Richard
   CM : Jacob
   CF : Josh
-  Bench: Alex, Max, Richard
+  Bench: Alex, Harry, Max
+
+Substitution at 24 min:
+  Alex ON (CF)  <->  Josh OFF
+  Harry ON (RM)  <->  Richard OFF
+  GK : Kayden
+  LB : Jake
+  RB : Ru
+  LM : Lewis
+  RM : Harry
+  CM : Jacob
+  CF : Alex
+  Bench: Max, Josh, Richard
+
+Substitution at 36 min:
+  Max ON (LB)  <->  Jake OFF
+  Richard ON (CM)  <->  Jacob OFF
+  GK : Kayden
+  LB : Max
+  RB : Ru
+  LM : Lewis
+  RM : Harry
+  CM : Richard
+  CF : Alex
+  Bench: Josh, Jake, Jacob
 
 Minutes played:
-  Alex: 15 + 10 = 25         Harry: 25 + 5 = 30         Jacob: 15 + 20 + 5 = 40  
-  Jake: 10 + 15 = 25         Josh: 50                   Kayden: 50               
-  Lewis: 35                  Max: 15 + 10 = 25          Richard: 45              
-  Ru: 10 + 15 = 25         
+  Alex      RB(12) -> bench(12) -> CF(24)  = 36 min
+  Harry     LM(12) -> bench(12) -> RM(24)  = 36 min
+  Jacob     CM(36) -> bench(12)  = 36 min
+  Jake      bench(12) -> LB(24) -> bench(12)  = 24 min
+  Josh      CF(24) -> bench(24)  = 24 min
+  Kayden    GK(48)  = 48 min
+  Lewis     bench(12) -> LM(36)  = 36 min
+  Max       LB(12) -> bench(24) -> LB(12)  = 24 min
+  Richard   RM(24) -> bench(12) -> CM(12)  = 36 min
+  Ru        bench(12) -> RB(36)  = 36 min
 
 ==================================================
 === PLAN 2 of 5 ===
@@ -86,61 +79,54 @@ Starting lineup:
 
   Bench: Ru, Alex, Harry
 
-Substitution at 15 min:
-  Ru ON (LB)  <->  Max OFF
-  Alex ON (RB)  <->  Jake OFF
-  Harry ON (RM)  <->  Jacob OFF
-  GK : Kayden
-  LB : Ru
-  RB : Alex
-  LM : Lewis
-  RM : Harry
-  CM : Richard
-  CF : Josh
-  Bench: Max, Jake, Jacob
-
-Substitution at 25 min:
-  Max ON (LB)  <->  Ru OFF
-  Jake ON (RB)  <->  Alex OFF
-  Jacob ON (LM)  <->  Lewis OFF
+Substitution at 12 min:
+  Ru ON (RB)  <->  Jake OFF
+  Alex ON (CF)  <->  Josh OFF
+  Harry ON (LM)  <->  Lewis OFF
   GK : Kayden
   LB : Max
-  RB : Jake
-  LM : Jacob
-  RM : Harry
+  RB : Ru
+  LM : Harry
+  RM : Jacob
   CM : Richard
-  CF : Josh
-  Bench: Ru, Alex, Lewis
+  CF : Alex
+  Bench: Jake, Josh, Lewis
 
-Substitution at 35 min (half time):
-  Ru ON (LB)  <->  Max OFF
-  Alex ON (RB)  <->  Jake OFF
+Substitution at 24 min:
+  Jake ON (LB)  <->  Max OFF
+  Josh ON (RM)  <->  Jacob OFF
   GK : Kayden
-  LB : Ru
-  RB : Alex
-  LM : Jacob
-  RM : Harry
+  LB : Jake
+  RB : Ru
+  LM : Harry
+  RM : Josh
   CM : Richard
-  CF : Josh
-  Bench: Lewis, Max, Jake
+  CF : Alex
+  Bench: Lewis, Max, Jacob
 
-Substitution at 45 min:
-  Lewis ON (LM)  <->  Jacob OFF
+Substitution at 36 min:
+  Lewis ON (LM)  <->  Harry OFF
   Jacob ON (CM)  <->  Richard OFF
   GK : Kayden
-  LB : Ru
-  RB : Alex
+  LB : Jake
+  RB : Ru
   LM : Lewis
-  RM : Harry
+  RM : Josh
   CM : Jacob
-  CF : Josh
-  Bench: Max, Jake, Richard
+  CF : Alex
+  Bench: Max, Harry, Richard
 
 Minutes played:
-  Alex: 10 + 15 = 25         Harry: 35                  Jacob: 15 + 20 + 5 = 40  
-  Jake: 15 + 10 = 25         Josh: 50                   Kayden: 50               
-  Lewis: 25 + 5 = 30         Max: 15 + 10 = 25          Richard: 45              
-  Ru: 10 + 15 = 25         
+  Alex      bench(12) -> CF(36)  = 36 min
+  Harry     bench(12) -> LM(24) -> bench(12)  = 24 min
+  Jacob     RM(24) -> bench(12) -> CM(12)  = 36 min
+  Jake      RB(12) -> bench(12) -> LB(24)  = 36 min
+  Josh      CF(12) -> bench(12) -> RM(24)  = 36 min
+  Kayden    GK(48)  = 48 min
+  Lewis     LM(12) -> bench(24) -> LM(12)  = 24 min
+  Max       LB(24) -> bench(24)  = 24 min
+  Richard   CM(36) -> bench(12)  = 36 min
+  Ru        bench(12) -> RB(36)  = 36 min
 
 ==================================================
 === PLAN 3 of 5 ===
@@ -148,70 +134,63 @@ Minutes played:
 
 Starting lineup:
   GK : Kayden
-  LB : Ru
-  RB : Max
-  LM : Harry
-  RM : Jacob
-  CM : Richard
-  CF : Josh
-
-  Bench: Alex, Lewis, Jake
-
-Substitution at 15 min:
-  Alex ON (LB)  <->  Ru OFF
-  Lewis ON (RM)  <->  Jacob OFF
-  Jake ON (RB)  <->  Max OFF
-  GK : Kayden
-  LB : Alex
+  LB : Max
   RB : Jake
   LM : Harry
-  RM : Lewis
-  CM : Richard
-  CF : Josh
-  Bench: Ru, Jacob, Max
+  RM : Richard
+  CM : Jacob
+  CF : Ru
 
-Substitution at 25 min:
-  Ru ON (LB)  <->  Alex OFF
-  Jacob ON (LM)  <->  Harry OFF
-  Max ON (RB)  <->  Jake OFF
-  GK : Kayden
-  LB : Ru
-  RB : Max
-  LM : Jacob
-  RM : Lewis
-  CM : Richard
-  CF : Josh
-  Bench: Alex, Harry, Jake
+  Bench: Alex, Lewis, Josh
 
-Substitution at 35 min (half time):
-  Alex ON (LB)  <->  Ru OFF
-  Jake ON (RB)  <->  Max OFF
+Substitution at 12 min:
+  Alex ON (RB)  <->  Jake OFF
+  Lewis ON (LM)  <->  Harry OFF
+  Josh ON (CF)  <->  Ru OFF
   GK : Kayden
-  LB : Alex
-  RB : Jake
-  LM : Jacob
-  RM : Lewis
-  CM : Richard
+  LB : Max
+  RB : Alex
+  LM : Lewis
+  RM : Richard
+  CM : Jacob
   CF : Josh
-  Bench: Harry, Ru, Max
+  Bench: Jake, Harry, Ru
 
-Substitution at 45 min:
-  Harry ON (LM)  <->  Jacob OFF
-  Jacob ON (CM)  <->  Richard OFF
+Substitution at 24 min:
+  Jake ON (LB)  <->  Max OFF
+  Harry ON (RM)  <->  Richard OFF
   GK : Kayden
-  LB : Alex
-  RB : Jake
-  LM : Harry
-  RM : Lewis
+  LB : Jake
+  RB : Alex
+  LM : Lewis
+  RM : Harry
   CM : Jacob
   CF : Josh
   Bench: Ru, Max, Richard
 
+Substitution at 36 min:
+  Ru ON (RB)  <->  Alex OFF
+  Richard ON (CM)  <->  Jacob OFF
+  GK : Kayden
+  LB : Jake
+  RB : Ru
+  LM : Lewis
+  RM : Harry
+  CM : Richard
+  CF : Josh
+  Bench: Max, Alex, Jacob
+
 Minutes played:
-  Alex: 10 + 15 = 25         Harry: 25 + 5 = 30         Jacob: 15 + 20 + 5 = 40  
-  Jake: 10 + 15 = 25         Josh: 50                   Kayden: 50               
-  Lewis: 35                  Max: 15 + 10 = 25          Richard: 45              
-  Ru: 15 + 10 = 25         
+  Alex      bench(12) -> RB(24) -> bench(12)  = 24 min
+  Harry     LM(12) -> bench(12) -> RM(24)  = 36 min
+  Jacob     CM(36) -> bench(12)  = 36 min
+  Jake      RB(12) -> bench(12) -> LB(24)  = 36 min
+  Josh      bench(12) -> CF(36)  = 36 min
+  Kayden    GK(48)  = 48 min
+  Lewis     bench(12) -> LM(36)  = 36 min
+  Max       LB(24) -> bench(24)  = 24 min
+  Richard   RM(24) -> bench(12) -> CM(12)  = 36 min
+  Ru        CF(12) -> bench(24) -> RB(12)  = 24 min
 
 ==================================================
 === PLAN 4 of 5 ===
@@ -220,69 +199,62 @@ Minutes played:
 Starting lineup:
   GK : Kayden
   LB : Ru
-  RB : Jake
+  RB : Max
   LM : Harry
   RM : Jacob
   CM : Richard
-  CF : Josh
+  CF : Alex
 
-  Bench: Max, Alex, Lewis
+  Bench: Lewis, Josh, Jake
 
-Substitution at 15 min:
-  Max ON (LB)  <->  Ru OFF
-  Alex ON (RB)  <->  Jake OFF
-  Lewis ON (RM)  <->  Jacob OFF
+Substitution at 12 min:
+  Lewis ON (LM)  <->  Harry OFF
+  Josh ON (CF)  <->  Alex OFF
+  Jake ON (LB)  <->  Ru OFF
   GK : Kayden
-  LB : Max
-  RB : Alex
-  LM : Harry
-  RM : Lewis
+  LB : Jake
+  RB : Max
+  LM : Lewis
+  RM : Jacob
   CM : Richard
   CF : Josh
-  Bench: Ru, Jake, Jacob
+  Bench: Harry, Alex, Ru
 
-Substitution at 25 min:
+Substitution at 24 min:
+  Harry ON (RM)  <->  Jacob OFF
+  Alex ON (RB)  <->  Max OFF
+  GK : Kayden
+  LB : Jake
+  RB : Alex
+  LM : Lewis
+  RM : Harry
+  CM : Richard
+  CF : Josh
+  Bench: Ru, Jacob, Max
+
+Substitution at 36 min:
   Ru ON (RB)  <->  Alex OFF
-  Jake ON (LB)  <->  Max OFF
-  Jacob ON (LM)  <->  Harry OFF
+  Jacob ON (CM)  <->  Richard OFF
   GK : Kayden
   LB : Jake
   RB : Ru
-  LM : Jacob
-  RM : Lewis
-  CM : Richard
-  CF : Josh
-  Bench: Alex, Max, Harry
-
-Substitution at 35 min (half time):
-  Alex ON (RB)  <->  Ru OFF
-  Max ON (LB)  <->  Jake OFF
-  GK : Kayden
-  LB : Max
-  RB : Alex
-  LM : Jacob
-  RM : Lewis
-  CM : Richard
-  CF : Josh
-  Bench: Harry, Ru, Jake
-
-Substitution at 45 min:
-  Harry ON (LM)  <->  Jacob OFF
-  Jacob ON (CM)  <->  Richard OFF
-  GK : Kayden
-  LB : Max
-  RB : Alex
-  LM : Harry
-  RM : Lewis
+  LM : Lewis
+  RM : Harry
   CM : Jacob
   CF : Josh
-  Bench: Ru, Jake, Richard
+  Bench: Max, Alex, Richard
 
 Minutes played:
-  Alex: 10 + 15 = 25         Harry: 25 + 5 = 30         Jacob: 15 + 20 + 5 = 40  
-  Jake: 15 + 10 = 25         Josh: 50                   Kayden: 50               
-  Lewis: 35                  Max: 10 + 15 = 25          Richard: 45              
-  Ru: 15 + 10 = 25         
+  Alex      CF(12) -> bench(12) -> RB(12) -> bench(12)  = 24 min
+  Harry     LM(12) -> bench(12) -> RM(24)  = 36 min
+  Jacob     RM(24) -> bench(12) -> CM(12)  = 36 min
+  Jake      bench(12) -> LB(36)  = 36 min
+  Josh      bench(12) -> CF(36)  = 36 min
+  Kayden    GK(48)  = 48 min
+  Lewis     bench(12) -> LM(36)  = 36 min
+  Max       RB(24) -> bench(24)  = 24 min
+  Richard   CM(36) -> bench(12)  = 36 min
+  Ru        LB(12) -> bench(24) -> RB(12)  = 24 min
 
 ==================================================
 === PLAN 5 of 5 ===
@@ -290,70 +262,63 @@ Minutes played:
 
 Starting lineup:
   GK : Kayden
-  LB : Alex
-  RB : Ru
-  LM : Lewis
-  RM : Jacob
-  CM : Richard
-  CF : Josh
-
-  Bench: Max, Harry, Jake
-
-Substitution at 15 min:
-  Max ON (RB)  <->  Ru OFF
-  Harry ON (RM)  <->  Jacob OFF
-  Jake ON (LB)  <->  Alex OFF
-  GK : Kayden
-  LB : Jake
+  LB : Ru
   RB : Max
   LM : Lewis
-  RM : Harry
-  CM : Richard
-  CF : Josh
-  Bench: Ru, Jacob, Alex
-
-Substitution at 25 min:
-  Ru ON (RB)  <->  Max OFF
-  Jacob ON (LM)  <->  Lewis OFF
-  Alex ON (LB)  <->  Jake OFF
-  GK : Kayden
-  LB : Alex
-  RB : Ru
-  LM : Jacob
-  RM : Harry
-  CM : Richard
-  CF : Josh
-  Bench: Max, Lewis, Jake
-
-Substitution at 35 min (half time):
-  Max ON (RB)  <->  Ru OFF
-  Jake ON (LB)  <->  Alex OFF
-  GK : Kayden
-  LB : Jake
-  RB : Max
-  LM : Jacob
-  RM : Harry
-  CM : Richard
-  CF : Josh
-  Bench: Lewis, Ru, Alex
-
-Substitution at 45 min:
-  Lewis ON (LM)  <->  Jacob OFF
-  Jacob ON (CM)  <->  Richard OFF
-  GK : Kayden
-  LB : Jake
-  RB : Max
-  LM : Lewis
-  RM : Harry
+  RM : Richard
   CM : Jacob
   CF : Josh
-  Bench: Ru, Alex, Richard
+
+  Bench: Alex, Harry, Jake
+
+Substitution at 12 min:
+  Alex ON (LB)  <->  Ru OFF
+  Harry ON (LM)  <->  Lewis OFF
+  Jake ON (RB)  <->  Max OFF
+  GK : Kayden
+  LB : Alex
+  RB : Jake
+  LM : Harry
+  RM : Richard
+  CM : Jacob
+  CF : Josh
+  Bench: Ru, Lewis, Max
+
+Substitution at 24 min:
+  Ru ON (CF)  <->  Josh OFF
+  Lewis ON (RM)  <->  Richard OFF
+  GK : Kayden
+  LB : Alex
+  RB : Jake
+  LM : Harry
+  RM : Lewis
+  CM : Jacob
+  CF : Ru
+  Bench: Max, Josh, Richard
+
+Substitution at 36 min:
+  Max ON (LB)  <->  Alex OFF
+  Richard ON (CM)  <->  Jacob OFF
+  GK : Kayden
+  LB : Max
+  RB : Jake
+  LM : Harry
+  RM : Lewis
+  CM : Richard
+  CF : Ru
+  Bench: Josh, Alex, Jacob
 
 Minutes played:
-  Alex: 15 + 10 = 25         Harry: 35                  Jacob: 15 + 20 + 5 = 40  
-  Jake: 10 + 15 = 25         Josh: 50                   Kayden: 50               
-  Lewis: 25 + 5 = 30         Max: 10 + 15 = 25          Richard: 45              
-  Ru: 15 + 10 = 25         
+  Alex      bench(12) -> LB(24) -> bench(12)  = 24 min
+  Harry     bench(12) -> LM(36)  = 36 min
+  Jacob     CM(36) -> bench(12)  = 36 min
+  Jake      bench(12) -> RB(36)  = 36 min
+  Josh      CF(24) -> bench(24)  = 24 min
+  Kayden    GK(48)  = 48 min
+  Lewis     LM(12) -> bench(12) -> RM(24)  = 36 min
+  Max       RB(12) -> bench(24) -> LB(12)  = 24 min
+  Richard   RM(24) -> bench(12) -> CM(12)  = 36 min
+  Ru        LB(12) -> bench(12) -> CF(24)  = 36 min
 
 ==================================================
 Showing 5 plan(s).

@@ -1,5 +1,5 @@
 game:
-  duration: 50
+  duration: 48
   positions:
     DEF:
       LB: 1
@@ -12,8 +12,9 @@ game:
     FWD:
       CF: 1
   sub_windows:
-    min: 4
-    max: 4
+    min: 3
+    max: 3
+    equal_periods: true
   num_plans: 5
   constraints:
     # List pairs of players where at least one must always be on the pitch.
@@ -26,52 +27,52 @@ game:
 players:
   - name: Kayden
     positions: [GK]
-    min_minutes: 50
-    max_minutes: 50
+    min_minutes: 48
+    max_minutes: 48
     must_start: true   # always starts
 
   - name: Ru
-    positions: [DEF]
-    min_minutes: 25
-    max_minutes: 50
+    positions: [DEF, CF]
+    min_minutes: 12
+    max_minutes: 48
 
   - name: Max
     positions: [DEF]
-    min_minutes: 25
-    max_minutes: 50
+    min_minutes: 12
+    max_minutes: 48
 
   - name: Alex
-    positions: [DEF]
-    min_minutes: 25
-    max_minutes: 50
+    positions: [DEF, CF]
+    min_minutes: 12
+    max_minutes: 48
 
   - name: Lewis
     positions: [LM, RM]
-    min_minutes: 25
-    max_minutes: 50
+    min_minutes: 12
+    max_minutes: 48
 
   - name: Jacob
-    positions: [Mid]
-    min_minutes: 25
-    max_minutes: 50
+    positions: [Mid, CF]
+    min_minutes: 12
+    max_minutes: 48
 
   - name: Richard
     positions: [Mid]
-    min_minutes: 25
-    max_minutes: 50
+    min_minutes: 12
+    max_minutes: 48
 
   - name: Josh
     positions: [RM, LM, CF]
-    min_minutes: 25
-    max_minutes: 50
+    min_minutes: 12
+    max_minutes: 48
 
   - name: Harry
     positions: [LM, RM]
-    min_minutes: 25
-    max_minutes: 50
+    min_minutes: 12
+    max_minutes: 48
 
   - name: Jake
     positions: [Def]
-    min_minutes: 25
-    max_minutes: 50
+    min_minutes: 12
+    max_minutes: 48
     # must_bench: true

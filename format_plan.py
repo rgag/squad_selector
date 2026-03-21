@@ -52,25 +52,29 @@ def format_lineup(xi: dict, group_order: list[str]) -> str:
     return "\n".join(lines)
 
 
+def format_timeline_segment(seg: dict) -> str:
+    """Format a single timeline segment."""
+    if seg["type"] == "bench":
+        return f"bench({seg['minutes']})"
+    else:
+        return f"{seg['position']}({seg['minutes']})"
+
+
 def format_minutes(minutes: dict) -> str:
-    """Format minutes dict as columnar display."""
-    items = []
+    """Format minutes dict showing each player's timeline and total."""
+    lines = []
+    name_width = max((len(name) for name in minutes), default=5) + 2
     for name in sorted(minutes):
         info = minutes[name]
-        stints = info["stints"]
         total = info["total"]
-        if not stints or total == 0:
-            items.append(f"  {name}: 0")
-        elif len(stints) == 1:
-            items.append(f"  {name}: {stints[0]}")
+        timeline = info.get("timeline", [])
+        if timeline:
+            segments = " -> ".join(format_timeline_segment(seg) for seg in timeline)
+            lines.append(f"  {name:<{name_width}} {segments}  = {total} min")
+        elif total == 0:
+            lines.append(f"  {name:<{name_width}} 0 min")
         else:
-            expr = " + ".join(str(x) for x in stints)
-            items.append(f"  {name}: {expr} = {total}")
-
-    col_width = max((len(i) for i in items), default=20) + 2
-    lines = []
-    for i in range(0, len(items), 3):
-        lines.append("".join(item.ljust(col_width) for item in items[i:i + 3]))
+            lines.append(f"  {name:<{name_width}} {total} min")
     return "\n".join(lines)
 
 
