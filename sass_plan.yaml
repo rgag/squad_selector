@@ -1,0 +1,509 @@
+game_file: sass_game.yaml
+duration: 50
+num_plans: 5
+plans:
+- plan_number: 1
+  score: -100.0
+  starting_xi:
+    GK: Kayden
+    LB: Alex
+    RB: Max
+    LM: Harry
+    RM: Jacob
+    CM: Richard
+    CF: Josh
+  bench:
+  - Ru
+  - Lewis
+  - Jake
+  substitutions:
+  - time: 15
+    swaps:
+    - 'on': Ru
+      'off': Alex
+      slot: LB
+    - 'on': Lewis
+      'off': Jacob
+      slot: RM
+    - 'on': Jake
+      'off': Max
+      slot: RB
+  - time: 25
+    swaps:
+    - 'on': Alex
+      'off': Ru
+      slot: LB
+    - 'on': Jacob
+      'off': Harry
+      slot: LM
+    - 'on': Max
+      'off': Jake
+      slot: RB
+  - time: 35
+    swaps:
+    - 'on': Ru
+      'off': Alex
+      slot: LB
+    - 'on': Jake
+      'off': Max
+      slot: RB
+  - time: 45
+    swaps:
+    - 'on': Harry
+      'off': Jacob
+      slot: LM
+    - 'on': Jacob
+      'off': Richard
+      slot: CM
+  minutes:
+    Alex:
+      total: 25
+      stints:
+      - 15
+      - 10
+    Harry:
+      total: 30
+      stints:
+      - 25
+      - 5
+    Jacob:
+      total: 40
+      stints:
+      - 15
+      - 20
+      - 5
+    Jake:
+      total: 25
+      stints:
+      - 10
+      - 15
+    Josh:
+      total: 50
+      stints:
+      - 50
+    Kayden:
+      total: 50
+      stints:
+      - 50
+    Lewis:
+      total: 35
+      stints:
+      - 35
+    Max:
+      total: 25
+      stints:
+      - 15
+      - 10
+    Richard:
+      total: 45
+      stints:
+      - 45
+    Ru:
+      total: 25
+      stints:
+      - 10
+      - 15
+- plan_number: 2
+  score: -100.0
+  starting_xi:
+    GK: Kayden
+    LB: Max
+    RB: Jake
+    LM: Lewis
+    RM: Jacob
+    CM: Richard
+    CF: Josh
+  bench:
+  - Ru
+  - Alex
+  - Harry
+  substitutions:
+  - time: 15
+    swaps:
+    - 'on': Ru
+      'off': Max
+      slot: LB
+    - 'on': Alex
+      'off': Jake
+      slot: RB
+    - 'on': Harry
+      'off': Jacob
+      slot: RM
+  - time: 25
+    swaps:
+    - 'on': Max
+      'off': Ru
+      slot: LB
+    - 'on': Jake
+      'off': Alex
+      slot: RB
+    - 'on': Jacob
+      'off': Lewis
+      slot: LM
+  - time: 35
+    swaps:
+    - 'on': Ru
+      'off': Max
+      slot: LB
+    - 'on': Alex
+      'off': Jake
+      slot: RB
+  - time: 45
+    swaps:
+    - 'on': Lewis
+      'off': Jacob
+      slot: LM
+    - 'on': Jacob
+      'off': Richard
+      slot: CM
+  minutes:
+    Alex:
+      total: 25
+      stints:
+      - 10
+      - 15
+    Harry:
+      total: 35
+      stints:
+      - 35
+    Jacob:
+      total: 40
+      stints:
+      - 15
+      - 20
+      - 5
+    Jake:
+      total: 25
+      stints:
+      - 15
+      - 10
+    Josh:
+      total: 50
+      stints:
+      - 50
+    Kayden:
+      total: 50
+      stints:
+      - 50
+    Lewis:
+      total: 30
+      stints:
+      - 25
+      - 5
+    Max:
+      total: 25
+      stints:
+      - 15
+      - 10
+    Richard:
+      total: 45
+      stints:
+      - 45
+    Ru:
+      total: 25
+      stints:
+      - 10
+      - 15
+- plan_number: 3
+  score: -100.0
+  starting_xi:
+    GK: Kayden
+    LB: Ru
+    RB: Max
+    LM: Harry
+    RM: Jacob
+    CM: Richard
+    CF: Josh
+  bench:
+  - Alex
+  - Lewis
+  - Jake
+  substitutions:
+  - time: 15
+    swaps:
+    - 'on': Alex
+      'off': Ru
+      slot: LB
+    - 'on': Lewis
+      'off': Jacob
+      slot: RM
+    - 'on': Jake
+      'off': Max
+      slot: RB
+  - time: 25
+    swaps:
+    - 'on': Ru
+      'off': Alex
+      slot: LB
+    - 'on': Jacob
+      'off': Harry
+      slot: LM
+    - 'on': Max
+      'off': Jake
+      slot: RB
+  - time: 35
+    swaps:
+    - 'on': Alex
+      'off': Ru
+      slot: LB
+    - 'on': Jake
+      'off': Max
+      slot: RB
+  - time: 45
+    swaps:
+    - 'on': Harry
+      'off': Jacob
+      slot: LM
+    - 'on': Jacob
+      'off': Richard
+      slot: CM
+  minutes:
+    Alex:
+      total: 25
+      stints:
+      - 10
+      - 15
+    Harry:
+      total: 30
+      stints:
+      - 25
+      - 5
+    Jacob:
+      total: 40
+      stints:
+      - 15
+      - 20
+      - 5
+    Jake:
+      total: 25
+      stints:
+      - 10
+      - 15
+    Josh:
+      total: 50
+      stints:
+      - 50
+    Kayden:
+      total: 50
+      stints:
+      - 50
+    Lewis:
+      total: 35
+      stints:
+      - 35
+    Max:
+      total: 25
+      stints:
+      - 15
+      - 10
+    Richard:
+      total: 45
+      stints:
+      - 45
+    Ru:
+      total: 25
+      stints:
+      - 15
+      - 10
+- plan_number: 4
+  score: -100.0
+  starting_xi:
+    GK: Kayden
+    LB: Ru
+    RB: Jake
+    LM: Harry
+    RM: Jacob
+    CM: Richard
+    CF: Josh
+  bench:
+  - Max
+  - Alex
+  - Lewis
+  substitutions:
+  - time: 15
+    swaps:
+    - 'on': Max
+      'off': Ru
+      slot: LB
+    - 'on': Alex
+      'off': Jake
+      slot: RB
+    - 'on': Lewis
+      'off': Jacob
+      slot: RM
+  - time: 25
+    swaps:
+    - 'on': Ru
+      'off': Alex
+      slot: RB
+    - 'on': Jake
+      'off': Max
+      slot: LB
+    - 'on': Jacob
+      'off': Harry
+      slot: LM
+  - time: 35
+    swaps:
+    - 'on': Alex
+      'off': Ru
+      slot: RB
+    - 'on': Max
+      'off': Jake
+      slot: LB
+  - time: 45
+    swaps:
+    - 'on': Harry
+      'off': Jacob
+      slot: LM
+    - 'on': Jacob
+      'off': Richard
+      slot: CM
+  minutes:
+    Alex:
+      total: 25
+      stints:
+      - 10
+      - 15
+    Harry:
+      total: 30
+      stints:
+      - 25
+      - 5
+    Jacob:
+      total: 40
+      stints:
+      - 15
+      - 20
+      - 5
+    Jake:
+      total: 25
+      stints:
+      - 15
+      - 10
+    Josh:
+      total: 50
+      stints:
+      - 50
+    Kayden:
+      total: 50
+      stints:
+      - 50
+    Lewis:
+      total: 35
+      stints:
+      - 35
+    Max:
+      total: 25
+      stints:
+      - 10
+      - 15
+    Richard:
+      total: 45
+      stints:
+      - 45
+    Ru:
+      total: 25
+      stints:
+      - 15
+      - 10
+- plan_number: 5
+  score: -100.0
+  starting_xi:
+    GK: Kayden
+    LB: Alex
+    RB: Ru
+    LM: Lewis
+    RM: Jacob
+    CM: Richard
+    CF: Josh
+  bench:
+  - Max
+  - Harry
+  - Jake
+  substitutions:
+  - time: 15
+    swaps:
+    - 'on': Max
+      'off': Ru
+      slot: RB
+    - 'on': Harry
+      'off': Jacob
+      slot: RM
+    - 'on': Jake
+      'off': Alex
+      slot: LB
+  - time: 25
+    swaps:
+    - 'on': Ru
+      'off': Max
+      slot: RB
+    - 'on': Jacob
+      'off': Lewis
+      slot: LM
+    - 'on': Alex
+      'off': Jake
+      slot: LB
+  - time: 35
+    swaps:
+    - 'on': Max
+      'off': Ru
+      slot: RB
+    - 'on': Jake
+      'off': Alex
+      slot: LB
+  - time: 45
+    swaps:
+    - 'on': Lewis
+      'off': Jacob
+      slot: LM
+    - 'on': Jacob
+      'off': Richard
+      slot: CM
+  minutes:
+    Alex:
+      total: 25
+      stints:
+      - 15
+      - 10
+    Harry:
+      total: 35
+      stints:
+      - 35
+    Jacob:
+      total: 40
+      stints:
+      - 15
+      - 20
+      - 5
+    Jake:
+      total: 25
+      stints:
+      - 10
+      - 15
+    Josh:
+      total: 50
+      stints:
+      - 50
+    Kayden:
+      total: 50
+      stints:
+      - 50
+    Lewis:
+      total: 30
+      stints:
+      - 25
+      - 5
+    Max:
+      total: 25
+      stints:
+      - 10
+      - 15
+    Richard:
+      total: 45
+      stints:
+      - 45
+    Ru:
+      total: 25
+      stints:
+      - 15
+      - 10

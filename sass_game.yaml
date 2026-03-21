@@ -1,0 +1,77 @@
+game:
+  duration: 50
+  positions:
+    DEF:
+      LB: 1
+      RB: 1
+    MID:
+      Wing:
+        LM: 1
+        RM: 1
+      CM: 1
+    FWD:
+      CF: 1
+  sub_windows:
+    min: 4
+    max: 4
+  num_plans: 5
+  constraints:
+    # List pairs of players where at least one must always be on the pitch.
+    # Remove or leave empty if not needed.
+    # never_bench_together:
+    #   - [Harry, Louisa]
+    #   - [Charlotte, Daisy]
+    #   - [Jess, Izzy]
+
+players:
+  - name: Kayden
+    positions: [GK]
+    min_minutes: 50
+    max_minutes: 50
+    must_start: true   # always starts
+
+  - name: Ru
+    positions: [DEF]
+    min_minutes: 25
+    max_minutes: 50
+
+  - name: Max
+    positions: [DEF]
+    min_minutes: 25
+    max_minutes: 50
+
+  - name: Alex
+    positions: [DEF]
+    min_minutes: 25
+    max_minutes: 50
+
+  - name: Lewis
+    positions: [LM, RM]
+    min_minutes: 25
+    max_minutes: 50
+
+  - name: Jacob
+    positions: [Mid]
+    min_minutes: 25
+    max_minutes: 50
+
+  - name: Richard
+    positions: [Mid]
+    min_minutes: 25
+    max_minutes: 50
+
+  - name: Josh
+    positions: [RM, LM, CF]
+    min_minutes: 25
+    max_minutes: 50
+
+  - name: Harry
+    positions: [LM, RM]
+    min_minutes: 25
+    max_minutes: 50
+
+  - name: Jake
+    positions: [Def]
+    min_minutes: 25
+    max_minutes: 50
+    # must_bench: true

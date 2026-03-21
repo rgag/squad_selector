@@ -1,6 +1,16 @@
 game:
   duration: 70
-  formation: "3-5-2"
+  positions:
+    DEF:
+      CB: 3
+    MID:
+      Wing:
+        LM: 1
+        RM: 1
+      DM: 2
+      AM: 1
+    FWD:
+      CF: 2
   sub_windows:
     min: 2
     max: 6
@@ -81,4 +91,3 @@ players:
     min_minutes: 35
     max_minutes: 70
     must_bench: true
-    # must_bench: true   # use this to make Daisy start on the bench
