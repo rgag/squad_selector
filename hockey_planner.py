@@ -372,13 +372,15 @@ def generate_subs_for_windows(
     slot_type_map = {s["name"]: s["type"] for s in slots}
 
     # Lock each slot's position requirement to whoever started there.
-    # E.g. if a DM starts in M3, M3 always requires a DM — even after a sub.
+    # Use only the FIRST relevant position to match the display label exactly.
+    # E.g. if Jess [AM, DM] starts in M3, M3 always requires AM — not DM.
     slot_required_positions: dict[str, list[str]] = {}
     for slot_name, player_name in starting_xi.items():
         broad = slot_type_map[slot_name]
         relevant = [p for p in players_by_name[player_name].positions
                     if LABEL_TO_BROAD.get(p, p) == broad]
-        slot_required_positions[slot_name] = relevant if relevant else [broad]
+        first = relevant[0] if relevant else broad
+        slot_required_positions[slot_name] = [first]
 
     for p in on_bench:
         player_to_slot[p] = None

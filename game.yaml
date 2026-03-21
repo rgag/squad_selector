@@ -3,7 +3,7 @@ game:
   formation: "3-5-2"
   sub_windows:
     min: 2
-    max: 4
+    max: 6
   num_plans: 5
   constraints:
     # List pairs of players where at least one must always be on the pitch.

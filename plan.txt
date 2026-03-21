@@ -1,7 +1,7 @@
 Hockey Substitution Planner
   Formation : 3-5-2
   Duration  : 70 min
-  Sub windows: 2–4
+  Sub windows: 2–6
   Players   : 13
   Generating up to 5 plan(s)...
 
@@ -18,47 +18,65 @@ Starting lineup:
 
   Bench: Nicky, Daisy
 
-Substitution at 17 min:
-  Nicky ON (LM)  <->  Izzy OFF
+Substitution at 15 min:
+  Nicky ON (RM)  <->  Zoe OFF
   Daisy ON (FWD)  <->  Emily OFF
   GK : Tadi
   DEF: Hayley    DEF: George    DEF: Nick
-  RM : Zoe    AM : Jess    DM : Louisa    LM : Nicky    DM : Harry
+  RM : Nicky    AM : Jess    DM : Louisa    LM : Izzy    DM : Harry
   FWD: Charlotte    FWD: Daisy
-  Bench: Izzy, Emily
+  Bench: Zoe, Emily
 
-Substitution at 31 min:
+Substitution at 25 min:
+  Zoe ON (LM)  <->  Izzy OFF
+  Emily ON (FWD)  <->  Charlotte OFF
+  GK : Tadi
+  DEF: Hayley    DEF: George    DEF: Nick
+  RM : Nicky    AM : Jess    DM : Louisa    LM : Zoe    DM : Harry
+  FWD: Emily    FWD: Daisy
+  Bench: Izzy, Charlotte
+
+Substitution at 35 min (half time):
   Izzy ON (DM)  <->  Harry OFF
+  Charlotte ON (LM)  <->  Zoe OFF
+  GK : Tadi
+  DEF: Hayley    DEF: George    DEF: Nick
+  RM : Nicky    AM : Jess    DM : Louisa    LM : Charlotte    DM : Izzy
+  FWD: Emily    FWD: Daisy
+  Bench: Harry, Zoe
+
+Substitution at 45 min:
+  Zoe ON (LM)  <->  Charlotte OFF
+  Harry ON (DM)  <->  Louisa OFF
+  GK : Tadi
+  DEF: Hayley    DEF: George    DEF: Nick
+  RM : Nicky    AM : Jess    DM : Harry    LM : Zoe    DM : Izzy
+  FWD: Emily    FWD: Daisy
+  Bench: Charlotte, Louisa
+
+Substitution at 55 min:
+  Charlotte ON (FWD)  <->  Emily OFF
   Emily ON (AM)  <->  Jess OFF
   GK : Tadi
   DEF: Hayley    DEF: George    DEF: Nick
-  RM : Zoe    AM : Emily    DM : Louisa    LM : Nicky    DM : Izzy
+  RM : Nicky    AM : Emily    DM : Harry    LM : Zoe    DM : Izzy
   FWD: Charlotte    FWD: Daisy
-  Bench: Harry, Jess
+  Bench: Louisa, Jess
 
-Substitution at 45 min:
-  Harry ON (DM)  <->  Louisa OFF
-  Jess ON (DM)  <->  Izzy OFF
+Substitution at 65 min:
+  Louisa ON (DM)  <->  Harry OFF
   GK : Tadi
   DEF: Hayley    DEF: George    DEF: Nick
-  RM : Zoe    AM : Emily    DM : Harry    LM : Nicky    DM : Jess
+  RM : Nicky    AM : Emily    DM : Louisa    LM : Zoe    DM : Izzy
   FWD: Charlotte    FWD: Daisy
-  Bench: Louisa, Izzy
-
-Substitution at 59 min:
-  Izzy ON (RM)  <->  Zoe OFF
-  GK : Tadi
-  DEF: Hayley    DEF: George    DEF: Nick
-  RM : Izzy    AM : Emily    DM : Harry    LM : Nicky    DM : Jess
-  FWD: Charlotte    FWD: Daisy
-  Bench: Louisa, Zoe
+  Bench: Jess, Harry
 
 Minutes played:
-  Charlotte: 70              Daisy: 53                  Emily: 17 + 39 = 56      
-  George: 70                 Harry: 31 + 25 = 56        Hayley: 70               
-  Izzy: 17 + 14 + 11 = 42    Jess: 31 + 25 = 56         Louisa: 45               
-  Nick: 70                   Nicky: 53                  Tadi: 70                 
-  Zoe: 59                  
+  Charlotte: 25 + 10 + 15 = 50    Daisy: 55                       Emily: 15 + 30 + 15 = 60      
+  George: 70                      Harry: 35 + 20 = 55             Hayley: 70                    
+  Izzy: 25 + 35 = 60              Jess: 55                        Louisa: 45 + 5 = 50           
+  Nick: 70                        Nicky: 55                       Tadi: 70                      
+  Zoe: 15 + 10 + 25 = 50        
 
 ==================================================
 === PLAN 2 of 5 ===
@@ -72,47 +90,65 @@ Starting lineup:
 
   Bench: Nicky, Daisy
 
-Substitution at 19 min:
-  Nicky ON (LM)  <->  Izzy OFF
+Substitution at 13 min:
+  Nicky ON (RM)  <->  Zoe OFF
   Daisy ON (FWD)  <->  Emily OFF
   GK : Tadi
   DEF: Hayley    DEF: George    DEF: Nick
-  RM : Zoe    AM : Jess    DM : Louisa    LM : Nicky    DM : Harry
+  RM : Nicky    AM : Jess    DM : Louisa    LM : Izzy    DM : Harry
   FWD: Charlotte    FWD: Daisy
-  Bench: Izzy, Emily
+  Bench: Zoe, Emily
+
+Substitution at 23 min:
+  Zoe ON (LM)  <->  Izzy OFF
+  Emily ON (FWD)  <->  Charlotte OFF
+  GK : Tadi
+  DEF: Hayley    DEF: George    DEF: Nick
+  RM : Nicky    AM : Jess    DM : Louisa    LM : Zoe    DM : Harry
+  FWD: Emily    FWD: Daisy
+  Bench: Izzy, Charlotte
 
 Substitution at 33 min:
   Izzy ON (DM)  <->  Harry OFF
+  Charlotte ON (LM)  <->  Zoe OFF
+  GK : Tadi
+  DEF: Hayley    DEF: George    DEF: Nick
+  RM : Nicky    AM : Jess    DM : Louisa    LM : Charlotte    DM : Izzy
+  FWD: Emily    FWD: Daisy
+  Bench: Harry, Zoe
+
+Substitution at 43 min:
+  Harry ON (DM)  <->  Louisa OFF
+  Zoe ON (LM)  <->  Charlotte OFF
+  GK : Tadi
+  DEF: Hayley    DEF: George    DEF: Nick
+  RM : Nicky    AM : Jess    DM : Harry    LM : Zoe    DM : Izzy
+  FWD: Emily    FWD: Daisy
+  Bench: Louisa, Charlotte
+
+Substitution at 53 min:
+  Charlotte ON (FWD)  <->  Emily OFF
   Emily ON (AM)  <->  Jess OFF
   GK : Tadi
   DEF: Hayley    DEF: George    DEF: Nick
-  RM : Zoe    AM : Emily    DM : Louisa    LM : Nicky    DM : Izzy
+  RM : Nicky    AM : Emily    DM : Harry    LM : Zoe    DM : Izzy
   FWD: Charlotte    FWD: Daisy
-  Bench: Harry, Jess
+  Bench: Louisa, Jess
 
-Substitution at 47 min:
-  Harry ON (DM)  <->  Louisa OFF
-  Jess ON (DM)  <->  Izzy OFF
+Substitution at 63 min:
+  Louisa ON (DM)  <->  Harry OFF
   GK : Tadi
   DEF: Hayley    DEF: George    DEF: Nick
-  RM : Zoe    AM : Emily    DM : Harry    LM : Nicky    DM : Jess
+  RM : Nicky    AM : Emily    DM : Louisa    LM : Zoe    DM : Izzy
   FWD: Charlotte    FWD: Daisy
-  Bench: Louisa, Izzy
-
-Substitution at 61 min:
-  Izzy ON (RM)  <->  Zoe OFF
-  GK : Tadi
-  DEF: Hayley    DEF: George    DEF: Nick
-  RM : Izzy    AM : Emily    DM : Harry    LM : Nicky    DM : Jess
-  FWD: Charlotte    FWD: Daisy
-  Bench: Louisa, Zoe
+  Bench: Jess, Harry
 
 Minutes played:
-  Charlotte: 70             Daisy: 51                 Emily: 19 + 37 = 56     
-  George: 70                Harry: 33 + 23 = 56       Hayley: 70              
-  Izzy: 19 + 14 + 9 = 42    Jess: 33 + 23 = 56        Louisa: 47              
-  Nick: 70                  Nicky: 51                 Tadi: 70                
-  Zoe: 61                 
+  Charlotte: 23 + 10 + 17 = 50    Daisy: 57                       Emily: 13 + 30 + 17 = 60      
+  George: 70                      Harry: 33 + 20 = 53             Hayley: 70                    
+  Izzy: 23 + 37 = 60              Jess: 53                        Louisa: 43 + 7 = 50           
+  Nick: 70                        Nicky: 57                       Tadi: 70                      
+  Zoe: 13 + 10 + 27 = 50        
 
 ==================================================
 === PLAN 3 of 5 ===
@@ -126,47 +162,57 @@ Starting lineup:
 
   Bench: Nicky, Daisy
 
-Substitution at 12 min:
-  Nicky ON (LM)  <->  Izzy OFF
+Substitution at 15 min:
+  Nicky ON (RM)  <->  Zoe OFF
   Daisy ON (FWD)  <->  Emily OFF
   GK : Tadi
   DEF: Hayley    DEF: George    DEF: Nick
-  RM : Zoe    AM : Jess    DM : Louisa    LM : Nicky    DM : Harry
+  RM : Nicky    AM : Jess    DM : Louisa    LM : Izzy    DM : Harry
   FWD: Charlotte    FWD: Daisy
-  Bench: Izzy, Emily
+  Bench: Zoe, Emily
 
-Substitution at 23 min:
+Substitution at 26 min:
+  Zoe ON (LM)  <->  Izzy OFF
+  Emily ON (FWD)  <->  Charlotte OFF
+  GK : Tadi
+  DEF: Hayley    DEF: George    DEF: Nick
+  RM : Nicky    AM : Jess    DM : Louisa    LM : Zoe    DM : Harry
+  FWD: Emily    FWD: Daisy
+  Bench: Izzy, Charlotte
+
+Substitution at 38 min:
   Izzy ON (DM)  <->  Harry OFF
+  Charlotte ON (LM)  <->  Zoe OFF
+  GK : Tadi
+  DEF: Hayley    DEF: George    DEF: Nick
+  RM : Nicky    AM : Jess    DM : Louisa    LM : Charlotte    DM : Izzy
+  FWD: Emily    FWD: Daisy
+  Bench: Harry, Zoe
+
+Substitution at 50 min:
+  Zoe ON (LM)  <->  Charlotte OFF
+  Harry ON (DM)  <->  Louisa OFF
+  GK : Tadi
+  DEF: Hayley    DEF: George    DEF: Nick
+  RM : Nicky    AM : Jess    DM : Harry    LM : Zoe    DM : Izzy
+  FWD: Emily    FWD: Daisy
+  Bench: Charlotte, Louisa
+
+Substitution at 61 min:
+  Charlotte ON (FWD)  <->  Emily OFF
   Emily ON (AM)  <->  Jess OFF
   GK : Tadi
   DEF: Hayley    DEF: George    DEF: Nick
-  RM : Zoe    AM : Emily    DM : Louisa    LM : Nicky    DM : Izzy
+  RM : Nicky    AM : Emily    DM : Harry    LM : Zoe    DM : Izzy
   FWD: Charlotte    FWD: Daisy
-  Bench: Harry, Jess
-
-Substitution at 47 min:
-  Harry ON (DM)  <->  Louisa OFF
-  Jess ON (DM)  <->  Izzy OFF
-  GK : Tadi
-  DEF: Hayley    DEF: George    DEF: Nick
-  RM : Zoe    AM : Emily    DM : Harry    LM : Nicky    DM : Jess
-  FWD: Charlotte    FWD: Daisy
-  Bench: Louisa, Izzy
-
-Substitution at 58 min:
-  Izzy ON (RM)  <->  Zoe OFF
-  GK : Tadi
-  DEF: Hayley    DEF: George    DEF: Nick
-  RM : Izzy    AM : Emily    DM : Harry    LM : Nicky    DM : Jess
-  FWD: Charlotte    FWD: Daisy
-  Bench: Louisa, Zoe
+  Bench: Louisa, Jess
 
 Minutes played:
-  Charlotte: 70              Daisy: 58                  Emily: 12 + 47 = 59      
-  George: 70                 Harry: 23 + 23 = 46        Hayley: 70               
-  Izzy: 12 + 24 + 12 = 48    Jess: 23 + 23 = 46         Louisa: 47               
-  Nick: 70                   Nicky: 58                  Tadi: 70                 
-  Zoe: 58                  
+  Charlotte: 26 + 12 + 9 = 47    Daisy: 55                      Emily: 15 + 35 + 9 = 59      
+  George: 70                     Harry: 38 + 20 = 58            Hayley: 70                   
+  Izzy: 26 + 32 = 58             Jess: 61                       Louisa: 50                   
+  Nick: 70                       Nicky: 55                      Tadi: 70                     
+  Zoe: 15 + 12 + 20 = 47       
 
 ==================================================
 === PLAN 4 of 5 ===
@@ -180,47 +226,57 @@ Starting lineup:
 
   Bench: Nicky, Daisy
 
-Substitution at 14 min:
-  Nicky ON (LM)  <->  Izzy OFF
+Substitution at 17 min:
+  Nicky ON (RM)  <->  Zoe OFF
   Daisy ON (FWD)  <->  Emily OFF
   GK : Tadi
   DEF: Hayley    DEF: George    DEF: Nick
-  RM : Zoe    AM : Jess    DM : Louisa    LM : Nicky    DM : Harry
+  RM : Nicky    AM : Jess    DM : Louisa    LM : Izzy    DM : Harry
   FWD: Charlotte    FWD: Daisy
-  Bench: Izzy, Emily
+  Bench: Zoe, Emily
 
 Substitution at 28 min:
+  Zoe ON (LM)  <->  Izzy OFF
+  Emily ON (FWD)  <->  Charlotte OFF
+  GK : Tadi
+  DEF: Hayley    DEF: George    DEF: Nick
+  RM : Nicky    AM : Jess    DM : Louisa    LM : Zoe    DM : Harry
+  FWD: Emily    FWD: Daisy
+  Bench: Izzy, Charlotte
+
+Substitution at 40 min:
   Izzy ON (DM)  <->  Harry OFF
+  Charlotte ON (LM)  <->  Zoe OFF
+  GK : Tadi
+  DEF: Hayley    DEF: George    DEF: Nick
+  RM : Nicky    AM : Jess    DM : Louisa    LM : Charlotte    DM : Izzy
+  FWD: Emily    FWD: Daisy
+  Bench: Harry, Zoe
+
+Substitution at 52 min:
+  Zoe ON (LM)  <->  Charlotte OFF
+  Harry ON (DM)  <->  Louisa OFF
+  GK : Tadi
+  DEF: Hayley    DEF: George    DEF: Nick
+  RM : Nicky    AM : Jess    DM : Harry    LM : Zoe    DM : Izzy
+  FWD: Emily    FWD: Daisy
+  Bench: Charlotte, Louisa
+
+Substitution at 63 min:
+  Charlotte ON (FWD)  <->  Emily OFF
   Emily ON (AM)  <->  Jess OFF
   GK : Tadi
   DEF: Hayley    DEF: George    DEF: Nick
-  RM : Zoe    AM : Emily    DM : Louisa    LM : Nicky    DM : Izzy
+  RM : Nicky    AM : Emily    DM : Harry    LM : Zoe    DM : Izzy
   FWD: Charlotte    FWD: Daisy
-  Bench: Harry, Jess
-
-Substitution at 42 min:
-  Harry ON (DM)  <->  Louisa OFF
-  Jess ON (DM)  <->  Izzy OFF
-  GK : Tadi
-  DEF: Hayley    DEF: George    DEF: Nick
-  RM : Zoe    AM : Emily    DM : Harry    LM : Nicky    DM : Jess
-  FWD: Charlotte    FWD: Daisy
-  Bench: Louisa, Izzy
-
-Substitution at 56 min:
-  Izzy ON (RM)  <->  Zoe OFF
-  GK : Tadi
-  DEF: Hayley    DEF: George    DEF: Nick
-  RM : Izzy    AM : Emily    DM : Harry    LM : Nicky    DM : Jess
-  FWD: Charlotte    FWD: Daisy
-  Bench: Louisa, Zoe
+  Bench: Louisa, Jess
 
 Minutes played:
-  Charlotte: 70              Daisy: 56                  Emily: 14 + 42 = 56      
-  George: 70                 Harry: 28 + 28 = 56        Hayley: 70               
-  Izzy: 14 + 14 + 14 = 42    Jess: 28 + 28 = 56         Louisa: 42               
-  Nick: 70                   Nicky: 56                  Tadi: 70                 
-  Zoe: 56                  
+  Charlotte: 28 + 12 + 7 = 47    Daisy: 53                      Emily: 17 + 35 + 7 = 59      
+  George: 70                     Harry: 40 + 18 = 58            Hayley: 70                   
+  Izzy: 28 + 30 = 58             Jess: 63                       Louisa: 52                   
+  Nick: 70                       Nicky: 53                      Tadi: 70                     
+  Zoe: 17 + 12 + 18 = 47       
 
 ==================================================
 === PLAN 5 of 5 ===
@@ -234,47 +290,66 @@ Starting lineup:
 
   Bench: Nicky, Daisy
 
-Substitution at 11 min:
-  Nicky ON (LM)  <->  Izzy OFF
+Substitution at 10 min:
+  Nicky ON (RM)  <->  Zoe OFF
   Daisy ON (FWD)  <->  Emily OFF
   GK : Tadi
   DEF: Hayley    DEF: George    DEF: Nick
-  RM : Zoe    AM : Jess    DM : Louisa    LM : Nicky    DM : Harry
+  RM : Nicky    AM : Jess    DM : Louisa    LM : Izzy    DM : Harry
+  FWD: Charlotte    FWD: Daisy
+  Bench: Zoe, Emily
+
+Substitution at 20 min:
+  Zoe ON (LM)  <->  Izzy OFF
+  Emily ON (FWD)  <->  Charlotte OFF
+  GK : Tadi
+  DEF: Hayley    DEF: George    DEF: Nick
+  RM : Nicky    AM : Jess    DM : Louisa    LM : Zoe    DM : Harry
+  FWD: Emily    FWD: Daisy
+  Bench: Izzy, Charlotte
+
+Substitution at 30 min:
+  Izzy ON (DM)  <->  Harry OFF
+  Charlotte ON (LM)  <->  Zoe OFF
+  GK : Tadi
+  DEF: Hayley    DEF: George    DEF: Nick
+  RM : Nicky    AM : Jess    DM : Louisa    LM : Charlotte    DM : Izzy
+  FWD: Emily    FWD: Daisy
+  Bench: Harry, Zoe
+
+Substitution at 40 min:
+  Harry ON (DM)  <->  Louisa OFF
+  Zoe ON (RM)  <->  Nicky OFF
+  GK : Tadi
+  DEF: Hayley    DEF: George    DEF: Nick
+  RM : Zoe    AM : Jess    DM : Harry    LM : Charlotte    DM : Izzy
+  FWD: Emily    FWD: Daisy
+  Bench: Louisa, Nicky
+
+Substitution at 50 min:
+  Nicky ON (RM)  <->  Zoe OFF
+  Zoe ON (LM)  <->  Charlotte OFF
+  GK : Tadi
+  DEF: Hayley    DEF: George    DEF: Nick
+  RM : Nicky    AM : Jess    DM : Harry    LM : Zoe    DM : Izzy
+  FWD: Emily    FWD: Daisy
+  Bench: Louisa, Charlotte
+
+Substitution at 60 min:
+  Louisa ON (DM)  <->  Izzy OFF
+  Charlotte ON (FWD)  <->  Emily OFF
+  GK : Tadi
+  DEF: Hayley    DEF: George    DEF: Nick
+  RM : Nicky    AM : Jess    DM : Harry    LM : Zoe    DM : Louisa
   FWD: Charlotte    FWD: Daisy
   Bench: Izzy, Emily
 
-Substitution at 25 min:
-  Izzy ON (DM)  <->  Harry OFF
-  Emily ON (AM)  <->  Jess OFF
-  GK : Tadi
-  DEF: Hayley    DEF: George    DEF: Nick
-  RM : Zoe    AM : Emily    DM : Louisa    LM : Nicky    DM : Izzy
-  FWD: Charlotte    FWD: Daisy
-  Bench: Harry, Jess
-
-Substitution at 39 min:
-  Harry ON (DM)  <->  Louisa OFF
-  Jess ON (LM)  <->  Nicky OFF
-  GK : Tadi
-  DEF: Hayley    DEF: George    DEF: Nick
-  RM : Zoe    AM : Emily    DM : Harry    LM : Jess    DM : Izzy
-  FWD: Charlotte    FWD: Daisy
-  Bench: Louisa, Nicky
-
-Substitution at 53 min:
-  Nicky ON (RM)  <->  Zoe OFF
-  GK : Tadi
-  DEF: Hayley    DEF: George    DEF: Nick
-  RM : Nicky    AM : Emily    DM : Harry    LM : Jess    DM : Izzy
-  FWD: Charlotte    FWD: Daisy
-  Bench: Louisa, Zoe
-
 Minutes played:
-  Charlotte: 70          Daisy: 59              Emily: 11 + 45 = 56  
-  George: 70             Harry: 25 + 31 = 56    Hayley: 70           
-  Izzy: 11 + 45 = 56     Jess: 25 + 31 = 56     Louisa: 39           
-  Nick: 70               Nicky: 28 + 17 = 45    Tadi: 70             
-  Zoe: 53              
+  Charlotte: 20 + 20 + 10 = 50    Daisy: 60                       Emily: 10 + 40 = 50           
+  George: 70                      Harry: 30 + 30 = 60             Hayley: 70                    
+  Izzy: 20 + 30 = 50              Jess: 70                        Louisa: 40 + 10 = 50          
+  Nick: 70                        Nicky: 30 + 20 = 50             Tadi: 70                      
+  Zoe: 10 + 10 + 10 + 20 = 50   
 
 ==================================================
 Generated 5 plan(s).
