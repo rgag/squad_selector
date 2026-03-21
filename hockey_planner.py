@@ -788,6 +788,7 @@ def plans_to_yaml(plans: list[Plan], game: dict, config_path: str) -> dict:
     output = {
         "game_file": config_path,
         "duration": game["duration"],
+        "equal_periods": game["sub_windows"].get("equal_periods", False),
         "num_plans": len(plans),
         "plans": [],
     }

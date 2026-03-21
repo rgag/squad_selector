@@ -78,7 +78,65 @@ def format_minutes(minutes: dict) -> str:
     return "\n".join(lines)
 
 
-def format_plan(plan: dict, plan_num: int, total: int) -> str:
+def format_summary_grid(plan: dict, duration: int) -> str:
+    """Build a grid showing each player's position in each period."""
+    xi = plan["starting_xi"]
+    bench = plan.get("bench", [])
+    subs = plan.get("substitutions", [])
+
+    # Determine period boundaries
+    sub_times = [s["time"] for s in subs]
+    boundaries = [0] + sub_times + [duration]
+    periods = [(boundaries[i], boundaries[i + 1]) for i in range(len(boundaries) - 1)]
+
+    # Track slot->player at each period
+    slot_to_player = dict(xi)
+    all_players = list(xi.values()) + list(bench)
+
+    # Build: for each period, which position is each player in?
+    grid: dict[str, list[str]] = {p: [] for p in all_players}
+
+    # Period 0: starting state
+    on_pitch = dict(xi)  # slot -> player
+    player_to_slot = {v: k for k, v in xi.items()}
+    for p in bench:
+        player_to_slot[p] = None
+
+    for period_idx, (start, end) in enumerate(periods):
+        # Apply subs that happen at the start of this period (except period 0)
+        if period_idx > 0:
+            sub = subs[period_idx - 1]
+            for swap in sub["swaps"]:
+                on_p = swap["on"]
+                off_p = swap["off"]
+                slot = swap["slot"]
+                on_pitch[slot] = on_p
+                player_to_slot[on_p] = slot
+                player_to_slot[off_p] = None
+
+        for p in all_players:
+            slot = player_to_slot.get(p)
+            if slot is not None:
+                grid[p].append(slot_position(slot))
+            else:
+                grid[p].append("bench")
+
+    # Format as table
+    period_headers = [f"{s}-{e}" for s, e in periods]
+    name_width = max(len(p) for p in all_players) + 2
+    col_width = max(max(len(h) for h in period_headers), 5) + 2
+
+    lines = []
+    header = " " * name_width + "".join(h.ljust(col_width) for h in period_headers)
+    lines.append(header)
+    for p in all_players:
+        row = f"{p:<{name_width}}" + "".join(cell.ljust(col_width) for cell in grid[p])
+        lines.append(row)
+
+    return "\n".join(lines)
+
+
+def format_plan(plan: dict, plan_num: int, total: int, duration: int = 0, equal_periods: bool = False) -> str:
     """Format a single plan dict as human-readable text."""
     out = []
     out.append(f"\n{'=' * 50}")
@@ -122,6 +180,10 @@ def format_plan(plan: dict, plan_num: int, total: int) -> str:
             out.append(format_lineup(current_xi, group_order))
             out.append(f"  Bench: {', '.join(current_bench)}")
 
+    if equal_periods and subs and duration > 0:
+        out.append("\nSummary:")
+        out.append(format_summary_grid(plan, duration))
+
     out.append("\nMinutes played:")
     out.append(format_minutes(minutes))
 
@@ -150,7 +212,8 @@ def main():
         print("No plans found in file.")
         sys.exit(1)
 
-    duration = data.get("duration", "?")
+    duration = data.get("duration", 0)
+    equal_periods = data.get("equal_periods", False)
     total = len(plans)
 
     lines = []
@@ -160,11 +223,11 @@ def main():
             sys.exit(1)
         plan = plans[args.plan - 1]
         lines.append(f"Hockey Substitution Plan (from {data.get('game_file', '?')}, {duration} min)")
-        lines.append(format_plan(plan, args.plan, total))
+        lines.append(format_plan(plan, args.plan, total, duration, equal_periods))
     else:
         lines.append(f"Hockey Substitution Plans (from {data.get('game_file', '?')}, {duration} min)")
         for plan in plans:
-            lines.append(format_plan(plan, plan["plan_number"], total))
+            lines.append(format_plan(plan, plan["plan_number"], total, duration, equal_periods))
         lines.append(f"\n{'=' * 50}")
         lines.append(f"Showing {total} plan(s).")
 

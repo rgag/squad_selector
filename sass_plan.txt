@@ -52,6 +52,19 @@ Substitution at 36 min:
   CF : Alex
   Bench: Josh, Jake, Jacob
 
+Summary:
+         0-12   12-24  24-36  36-48  
+Kayden   GK     GK     GK     GK     
+Max      LB     bench  bench  LB     
+Alex     RB     bench  CF     CF     
+Harry    LM     bench  RM     RM     
+Richard  RM     RM     bench  CM     
+Jacob    CM     CM     CM     bench  
+Josh     CF     CF     bench  bench  
+Ru       bench  RB     RB     RB     
+Lewis    bench  LM     LM     LM     
+Jake     bench  LB     LB     bench  
+
 Minutes played:
   Alex      RB(12) -> bench(12) -> CF(24)  = 36 min
   Harry     LM(12) -> bench(12) -> RM(24)  = 36 min
@@ -116,6 +129,19 @@ Substitution at 36 min:
   CF : Alex
   Bench: Max, Harry, Richard
 
+Summary:
+         0-12   12-24  24-36  36-48  
+Kayden   GK     GK     GK     GK     
+Max      LB     LB     bench  bench  
+Jake     RB     bench  LB     LB     
+Lewis    LM     bench  bench  LM     
+Jacob    RM     RM     bench  CM     
+Richard  CM     CM     CM     bench  
+Josh     CF     bench  RM     RM     
+Ru       bench  RB     RB     RB     
+Alex     bench  CF     CF     CF     
+Harry    bench  LM     LM     bench  
+
 Minutes played:
   Alex      bench(12) -> CF(36)  = 36 min
   Harry     bench(12) -> LM(24) -> bench(12)  = 24 min
@@ -169,28 +195,41 @@ Substitution at 24 min:
   Bench: Ru, Max, Richard
 
 Substitution at 36 min:
-  Ru ON (RB)  <->  Alex OFF
+  Ru ON (LB)  <->  Jake OFF
   Richard ON (CM)  <->  Jacob OFF
   GK : Kayden
-  LB : Jake
-  RB : Ru
+  LB : Ru
+  RB : Alex
   LM : Lewis
   RM : Harry
   CM : Richard
   CF : Josh
-  Bench: Max, Alex, Jacob
+  Bench: Max, Jake, Jacob
+
+Summary:
+         0-12   12-24  24-36  36-48  
+Kayden   GK     GK     GK     GK     
+Max      LB     LB     bench  bench  
+Jake     RB     bench  LB     bench  
+Harry    LM     bench  RM     RM     
+Richard  RM     RM     bench  CM     
+Jacob    CM     CM     CM     bench  
+Ru       CF     bench  bench  LB     
+Alex     bench  RB     RB     RB     
+Lewis    bench  LM     LM     LM     
+Josh     bench  CF     CF     CF     
 
 Minutes played:
-  Alex      bench(12) -> RB(24) -> bench(12)  = 24 min
+  Alex      bench(12) -> RB(36)  = 36 min
   Harry     LM(12) -> bench(12) -> RM(24)  = 36 min
   Jacob     CM(36) -> bench(12)  = 36 min
-  Jake      RB(12) -> bench(12) -> LB(24)  = 36 min
+  Jake      RB(12) -> bench(12) -> LB(12) -> bench(12)  = 24 min
   Josh      bench(12) -> CF(36)  = 36 min
   Kayden    GK(48)  = 48 min
   Lewis     bench(12) -> LM(36)  = 36 min
   Max       LB(24) -> bench(24)  = 24 min
   Richard   RM(24) -> bench(12) -> CM(12)  = 36 min
-  Ru        CF(12) -> bench(24) -> RB(12)  = 24 min
+  Ru        CF(12) -> bench(24) -> LB(12)  = 24 min
 
 ==================================================
 === PLAN 4 of 5 ===
@@ -233,28 +272,41 @@ Substitution at 24 min:
   Bench: Ru, Jacob, Max
 
 Substitution at 36 min:
-  Ru ON (RB)  <->  Alex OFF
+  Ru ON (LB)  <->  Jake OFF
   Jacob ON (CM)  <->  Richard OFF
   GK : Kayden
-  LB : Jake
-  RB : Ru
+  LB : Ru
+  RB : Alex
   LM : Lewis
   RM : Harry
   CM : Jacob
   CF : Josh
-  Bench: Max, Alex, Richard
+  Bench: Max, Jake, Richard
+
+Summary:
+         0-12   12-24  24-36  36-48  
+Kayden   GK     GK     GK     GK     
+Ru       LB     bench  bench  LB     
+Max      RB     RB     bench  bench  
+Harry    LM     bench  RM     RM     
+Jacob    RM     RM     bench  CM     
+Richard  CM     CM     CM     bench  
+Alex     CF     bench  RB     RB     
+Lewis    bench  LM     LM     LM     
+Josh     bench  CF     CF     CF     
+Jake     bench  LB     LB     bench  
 
 Minutes played:
-  Alex      CF(12) -> bench(12) -> RB(12) -> bench(12)  = 24 min
+  Alex      CF(12) -> bench(12) -> RB(24)  = 36 min
   Harry     LM(12) -> bench(12) -> RM(24)  = 36 min
   Jacob     RM(24) -> bench(12) -> CM(12)  = 36 min
-  Jake      bench(12) -> LB(36)  = 36 min
+  Jake      bench(12) -> LB(24) -> bench(12)  = 24 min
   Josh      bench(12) -> CF(36)  = 36 min
   Kayden    GK(48)  = 48 min
   Lewis     bench(12) -> LM(36)  = 36 min
   Max       RB(24) -> bench(24)  = 24 min
   Richard   CM(36) -> bench(12)  = 36 min
-  Ru        LB(12) -> bench(24) -> RB(12)  = 24 min
+  Ru        LB(12) -> bench(24) -> LB(12)  = 24 min
 
 ==================================================
 === PLAN 5 of 5 ===
@@ -297,26 +349,39 @@ Substitution at 24 min:
   Bench: Max, Josh, Richard
 
 Substitution at 36 min:
-  Max ON (LB)  <->  Alex OFF
+  Max ON (RB)  <->  Jake OFF
   Richard ON (CM)  <->  Jacob OFF
   GK : Kayden
-  LB : Max
-  RB : Jake
+  LB : Alex
+  RB : Max
   LM : Harry
   RM : Lewis
   CM : Richard
   CF : Ru
-  Bench: Josh, Alex, Jacob
+  Bench: Josh, Jake, Jacob
+
+Summary:
+         0-12   12-24  24-36  36-48  
+Kayden   GK     GK     GK     GK     
+Ru       LB     bench  CF     CF     
+Max      RB     bench  bench  RB     
+Lewis    LM     bench  RM     RM     
+Richard  RM     RM     bench  CM     
+Jacob    CM     CM     CM     bench  
+Josh     CF     CF     bench  bench  
+Alex     bench  LB     LB     LB     
+Harry    bench  LM     LM     LM     
+Jake     bench  RB     RB     bench  
 
 Minutes played:
-  Alex      bench(12) -> LB(24) -> bench(12)  = 24 min
+  Alex      bench(12) -> LB(36)  = 36 min
   Harry     bench(12) -> LM(36)  = 36 min
   Jacob     CM(36) -> bench(12)  = 36 min
-  Jake      bench(12) -> RB(36)  = 36 min
+  Jake      bench(12) -> RB(24) -> bench(12)  = 24 min
   Josh      CF(24) -> bench(24)  = 24 min
   Kayden    GK(48)  = 48 min
   Lewis     LM(12) -> bench(12) -> RM(24)  = 36 min
-  Max       RB(12) -> bench(24) -> LB(12)  = 24 min
+  Max       RB(12) -> bench(24) -> RB(12)  = 24 min
   Richard   RM(24) -> bench(12) -> CM(12)  = 36 min
   Ru        LB(12) -> bench(12) -> CF(24)  = 36 min
 
