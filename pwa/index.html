@@ -35,6 +35,7 @@
           <option value="4-4-2">4-4-2 (11-a-side)</option>
           <option value="4-3-3">4-3-3 (11-a-side)</option>
           <option value="7-a-side">7-a-side</option>
+          <option value="custom">Custom (empty)</option>
         </select>
       </div>
       <div style="display:flex;gap:8px">
@@ -53,11 +54,7 @@
     <div id="setupContent" style="display:none">
       <div class="form-group">
         <label class="form-label">Game duration (minutes)</label>
-        <div class="stepper">
-          <button onclick="app.adjustDuration(-5)">-</button>
-          <span class="stepper-val" id="durationVal"></span>
-          <button onclick="app.adjustDuration(5)">+</button>
-        </div>
+        <input type="number" id="durationInput" min="1" style="width:80px" onchange="app.setDuration(this.value)">
       </div>
 
       <div class="section-header">Formation</div>
@@ -174,7 +171,7 @@
   <div class="modal">
     <div class="modal-title">
       Add Position
-      <button class="btn btn-outline btn-small" onclick="app.closePosPicker()">Cancel</button>
+      <button class="btn btn-primary btn-small" onclick="app.closePosPicker()">Done</button>
     </div>
     <div id="posPickerContent"></div>
   </div>

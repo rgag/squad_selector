@@ -4,6 +4,7 @@ import * as store from './storage.js';
 let currentSquad = null;
 let plans = [];
 let currentPlanIdx = 0;
+let expandedPlayers = new Set();
 
 // --- Tab navigation ---
 function switchTab(name) {
@@ -12,6 +13,7 @@ function switchTab(name) {
   document.getElementById('screen-' + name).classList.add('active');
   document.getElementById('tab-' + name).classList.add('active');
 
+  if (name === 'squads') renderSquads();
   if (name === 'setup') renderSetup();
   if (name === 'players') renderPlayers();
   if (name === 'plans') renderPlansScreen();
@@ -94,7 +96,7 @@ function renderSetup() {
   document.getElementById('noSquadSetup').style.display = 'none';
   document.getElementById('setupContent').style.display = 'block';
 
-  document.getElementById('durationVal').textContent = currentSquad.gameDefaults.duration;
+  document.getElementById('durationInput').value = currentSquad.gameDefaults.duration;
   document.getElementById('subMinVal').textContent = currentSquad.gameDefaults.subWindows.min;
   document.getElementById('subMaxVal').textContent = currentSquad.gameDefaults.subWindows.max;
   document.getElementById('equalPeriods').checked = currentSquad.gameDefaults.subWindows.equalPeriods || false;
@@ -104,11 +106,13 @@ function renderSetup() {
   updateSlotCount();
 }
 
-function adjustDuration(delta) {
+function setDuration(val) {
   if (!currentSquad) return;
-  currentSquad.gameDefaults.duration = Math.max(10, currentSquad.gameDefaults.duration + delta);
-  document.getElementById('durationVal').textContent = currentSquad.gameDefaults.duration;
-  store.updateSquad(currentSquad);
+  const num = parseInt(val, 10);
+  if (!isNaN(num) && num >= 1) {
+    currentSquad.gameDefaults.duration = num;
+    store.updateSquad(currentSquad);
+  }
 }
 
 function adjustSubWin(which, delta) {
@@ -319,7 +323,7 @@ function renderPlayers() {
 
   const list = document.getElementById('playerList');
   list.innerHTML = currentSquad.players.map((p, i) => `
-    <div class="card player-card ${p.available ? '' : 'unavailable'}" id="player-${i}">
+    <div class="card player-card ${p.available ? '' : 'unavailable'} ${expandedPlayers.has(i) ? 'expanded' : ''}" id="player-${i}">
       <div class="player-header" onclick="app.togglePlayerExpand(${i})">
         <input type="checkbox" ${p.available ? 'checked' : ''} onclick="event.stopPropagation();app.toggleAvailable(${i})">
         <span class="player-name">${esc(p.name)}</span>
@@ -374,6 +378,8 @@ function toggleAvailable(idx) {
 function togglePlayerExpand(idx) {
   const el = document.getElementById('player-' + idx);
   el.classList.toggle('expanded');
+  if (expandedPlayers.has(idx)) expandedPlayers.delete(idx);
+  else expandedPlayers.add(idx);
 }
 
 function adjustPlayerMin(idx, delta) {
@@ -442,23 +448,53 @@ function removePosition(playerIdx, posIdx) {
 let posPickerPlayerIdx = -1;
 function openPosPicker(playerIdx) {
   posPickerPlayerIdx = playerIdx;
-  const nodes = [{ name: 'GK', isLeaf: true, parents: [] }, ...store.getAllTreeNodes(currentSquad.positions)];
   const current = new Set(currentSquad.players[playerIdx].positions);
   const content = document.getElementById('posPickerContent');
-  content.innerHTML = nodes.filter(n => !current.has(n.name)).map(n => `
-    <div class="card squad-card" onclick="app.pickPosition('${esc(n.name)}')">
-      <span style="font-weight:500">${esc(n.name)}</span>
-      <span class="text-small text-muted" style="margin-left:8px">${n.isLeaf ? 'position' : 'group'}</span>
-    </div>
-  `).join('');
+
+  // Build hierarchical picker: GK first, then walk the position tree
+  let html = '';
+  if (!current.has('GK')) {
+    html += `<div class="pos-picker-item" onclick="app.pickPosition('GK')">
+      <span class="pos-picker-name">GK</span>
+      <span class="pos-picker-type">position</span>
+    </div>`;
+  }
+  html += buildPickerHTML(currentSquad.positions, current, []);
+
+  content.innerHTML = html || '<div class="text-small text-muted" style="padding:12px">All positions already added</div>';
   document.getElementById('posPickerModal').classList.add('active');
+}
+
+function buildPickerHTML(node, current, parentNames) {
+  let html = '';
+  for (const [key, val] of Object.entries(node)) {
+    if (current.has(key)) continue;
+    const depth = parentNames.length;
+    if (typeof val === 'number') {
+      // Leaf position
+      const path = parentNames.length ? parentNames.join(' > ') + ' > ' : '';
+      html += `<div class="pos-picker-item" style="padding-left:${depth * 20}px" onclick="app.pickPosition('${esc(key)}')">
+        <span class="pos-picker-name">${esc(key)}</span>
+        <span class="pos-picker-type">position</span>
+      </div>`;
+    } else {
+      // Group header
+      html += `<div class="pos-picker-group" style="padding-left:${depth * 20}px" onclick="app.pickPosition('${esc(key)}')">
+        <span class="pos-picker-name">${esc(key)}</span>
+        <span class="pos-picker-type">group &mdash; covers all below</span>
+      </div>`;
+      html += buildPickerHTML(val, current, [...parentNames, key]);
+    }
+  }
+  return html;
 }
 
 function pickPosition(pos) {
   currentSquad.players[posPickerPlayerIdx].positions.push(pos);
   store.updateSquad(currentSquad);
-  closePosPicker();
   renderPlayers();
+  // Refresh the picker so user can add more positions
+  openPosPicker(posPickerPlayerIdx);
 }
 
 function closePosPicker() {
@@ -575,14 +611,25 @@ function renderPlan() {
   if (plan.subEvents.length > 0) {
     html += '<div class="section-header">Substitutions</div>';
     const currentXi = { ...plan.startingXi };
-    for (const ev of plan.subEvents) {
+    let currentBench = [...plan.bench];
+    for (let ei = 0; ei < plan.subEvents.length; ei++) {
+      const ev = plan.subEvents[ei];
       html += `<div class="sub-event">`;
       html += `<div class="sub-time">${ev.time} min</div>`;
       for (const swap of ev.swaps) {
         const pos = swap.slot.replace(/\d+$/, '');
         html += `<div class="sub-swap"><span class="on">${esc(swap.on)}</span> ON (${pos}) &larr; <span class="off">${esc(swap.off)}</span> OFF</div>`;
         currentXi[swap.slot] = swap.on;
+        currentBench = currentBench.filter(n => n !== swap.on);
+        currentBench.push(swap.off);
       }
+      // Collapsible lineup after subs
+      const collapseId = `sub-lineup-${ei}`;
+      html += `<div class="sub-lineup-toggle" onclick="document.getElementById('${collapseId}').classList.toggle('open')">Lineup after subs &rsaquo;</div>`;
+      html += `<div class="sub-lineup-detail" id="${collapseId}">`;
+      html += renderLineup({ ...currentXi }, tree);
+      html += `<div class="text-small text-muted mt-8">Bench: ${currentBench.join(', ') || '(none)'}</div>`;
+      html += `</div>`;
       html += '</div>';
     }
   }
@@ -694,7 +741,7 @@ if ('serviceWorker' in navigator) {
 // Export to window for onclick handlers
 window.app = {
   switchTab, selectSquad, showNewSquadForm, cancelNewSquad, saveNewSquad, deleteSquadConfirm,
-  adjustDuration, adjustSubWin, toggleEqualPeriods, adjustSlot,
+  setDuration, adjustSubWin, toggleEqualPeriods, adjustSlot,
   openTreeEditor, closeTreeEditor, addTopGroup, addTreeChild, removeTreeNode,
   showAddConstraint, saveConstraint, removeConstraint,
   toggleAvailable, togglePlayerExpand, adjustPlayerMin, adjustPlayerMax,

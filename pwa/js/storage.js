@@ -43,7 +43,7 @@ export function getSquad(id) {
 
 export function createSquad(name, presetKey) {
   const squads = loadSquads();
-  const positions = PRESETS[presetKey] || PRESETS['3-5-2'];
+  const positions = presetKey === 'custom' ? {} : (PRESETS[presetKey] || PRESETS['3-5-2']);
   const squad = {
     id: 'sq_' + Date.now(),
     name,

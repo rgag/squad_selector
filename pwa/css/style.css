@@ -342,6 +342,35 @@ input:focus, select:focus {
   font-size: 14px;
 }
 
+/* --- Position picker --- */
+.pos-picker-item, .pos-picker-group {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 12px;
+  border-bottom: 1px solid var(--border);
+  cursor: pointer;
+  min-height: 44px;
+}
+.pos-picker-item:active, .pos-picker-group:active {
+  background: var(--bg);
+}
+.pos-picker-group {
+  background: #f8f9fa;
+}
+.pos-picker-name {
+  font-weight: 500;
+  font-size: 15px;
+}
+.pos-picker-group .pos-picker-name {
+  font-weight: 600;
+  color: var(--text-muted);
+}
+.pos-picker-type {
+  font-size: 12px;
+  color: var(--text-muted);
+}
+
 /* --- Constraints --- */
 .constraint-pair {
   display: flex;
@@ -422,6 +451,22 @@ input:focus, select:focus {
 }
 .sub-swap .on { color: var(--primary); font-weight: 600; }
 .sub-swap .off { color: var(--danger); }
+.sub-lineup-toggle {
+  margin-top: 8px;
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--primary);
+  cursor: pointer;
+}
+.sub-lineup-detail {
+  display: none;
+  margin-top: 8px;
+  padding-top: 8px;
+  border-top: 1px solid var(--border);
+}
+.sub-lineup-detail.open {
+  display: block;
+}
 
 /* --- Summary grid --- */
 .grid-wrapper {
