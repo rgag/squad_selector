@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <meta name="theme-color" content="#1b4332">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <link rel="manifest" href="manifest.json">
+  <link rel="icon" href="icons/icon-192.png">
+  <link rel="apple-touch-icon" href="icons/icon-192.png">
+  <title>Hockey Sub Planner</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<div class="top-bar">
+  <span>Hockey Sub Planner</span>
+  <span class="squad-name" id="topSquadName"></span>
+</div>
+
+<div class="content">
+  <!-- ===== SQUADS SCREEN ===== -->
+  <div class="screen active" id="screen-squads">
+    <div id="squadList"></div>
+    <div id="newSquadForm" style="display:none" class="card">
+      <div class="form-group">
+        <label class="form-label">Squad name</label>
+        <input type="text" id="newSquadName" placeholder="e.g. Ladies 1st XI">
+      </div>
+      <div class="form-group">
+        <label class="form-label">Formation preset</label>
+        <select id="newSquadPreset">
+          <option value="3-5-2">3-5-2 (11-a-side)</option>
+          <option value="4-4-2">4-4-2 (11-a-side)</option>
+          <option value="4-3-3">4-3-3 (11-a-side)</option>
+          <option value="7-a-side">7-a-side</option>
+        </select>
+      </div>
+      <div style="display:flex;gap:8px">
+        <button class="btn btn-primary btn-small" onclick="app.saveNewSquad()">Create</button>
+        <button class="btn btn-outline btn-small" onclick="app.cancelNewSquad()">Cancel</button>
+      </div>
+    </div>
+    <button class="btn btn-outline btn-full mt-12" onclick="app.showNewSquadForm()">+ New Squad</button>
+  </div>
+
+  <!-- ===== SETUP SCREEN ===== -->
+  <div class="screen" id="screen-setup">
+    <div id="noSquadSetup" class="empty-state">
+      <p>Select a squad first</p>
+    </div>
+    <div id="setupContent" style="display:none">
+      <div class="form-group">
+        <label class="form-label">Game duration (minutes)</label>
+        <div class="stepper">
+          <button onclick="app.adjustDuration(-5)">-</button>
+          <span class="stepper-val" id="durationVal"></span>
+          <button onclick="app.adjustDuration(5)">+</button>
+        </div>
+      </div>
+
+      <div class="section-header">Formation</div>
+      <div class="card">
+        <div class="pos-tree-leaf" style="padding-bottom:8px;border-bottom:1px solid var(--border);margin-bottom:8px">
+          <span class="pos-tree-leaf-name">GK</span>
+          <span class="text-muted text-small">1 (always)</span>
+        </div>
+        <div id="positionTree"></div>
+        <div class="flex-between mt-8">
+          <span class="text-small text-muted" id="slotCount"></span>
+          <button class="btn btn-outline btn-small" onclick="app.openTreeEditor()">Edit tree</button>
+        </div>
+      </div>
+
+      <div class="section-header">Substitution windows</div>
+      <div class="card">
+        <div class="flex-between mb-8">
+          <span class="text-small">Min windows</span>
+          <div class="stepper">
+            <button onclick="app.adjustSubWin('min',-1)">-</button>
+            <span class="stepper-val" id="subMinVal"></span>
+            <button onclick="app.adjustSubWin('min',1)">+</button>
+          </div>
+        </div>
+        <div class="flex-between mb-8">
+          <span class="text-small">Max windows</span>
+          <div class="stepper">
+            <button onclick="app.adjustSubWin('max',-1)">-</button>
+            <span class="stepper-val" id="subMaxVal"></span>
+            <button onclick="app.adjustSubWin('max',1)">+</button>
+          </div>
+        </div>
+        <label class="checkbox-row">
+          <input type="checkbox" id="equalPeriods" onchange="app.toggleEqualPeriods()">
+          <span class="text-small">Equal periods between subs</span>
+        </label>
+      </div>
+
+      <div class="section-header">Never bench together</div>
+      <div class="card">
+        <div id="constraintsList"></div>
+        <div id="addConstraintForm" style="display:none" class="mt-8">
+          <div class="inline-form">
+            <select id="constraintA" style="flex:1"></select>
+            <span>&harr;</span>
+            <select id="constraintB" style="flex:1"></select>
+            <button class="btn btn-primary btn-small" onclick="app.saveConstraint()">Add</button>
+          </div>
+        </div>
+        <button class="btn btn-outline btn-small mt-8" onclick="app.showAddConstraint()">+ Add pair</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== PLAYERS SCREEN ===== -->
+  <div class="screen" id="screen-players">
+    <div id="noSquadPlayers" class="empty-state">
+      <p>Select a squad first</p>
+    </div>
+    <div id="playersContent" style="display:none">
+      <div class="status-bar" id="playerStatus"></div>
+      <div id="playerList"></div>
+      <div id="addPlayerForm" style="display:none" class="card mt-8">
+        <div class="form-group">
+          <label class="form-label">Player name</label>
+          <input type="text" id="newPlayerName" placeholder="e.g. Alex">
+        </div>
+        <div style="display:flex;gap:8px">
+          <button class="btn btn-primary btn-small" onclick="app.saveNewPlayer()">Add</button>
+          <button class="btn btn-outline btn-small" onclick="app.cancelNewPlayer()">Cancel</button>
+        </div>
+      </div>
+      <button class="btn btn-outline btn-full mt-12" onclick="app.showAddPlayer()">+ Add Player</button>
+      <button class="btn btn-primary btn-full mt-8" onclick="app.goToPlans()">Generate Plans &rarr;</button>
+    </div>
+  </div>
+
+  <!-- ===== PLANS SCREEN ===== -->
+  <div class="screen" id="screen-plans">
+    <div id="noSquadPlans" class="empty-state">
+      <p>Select a squad first</p>
+    </div>
+    <div id="plansContent" style="display:none">
+      <button class="btn btn-primary btn-full mb-12" id="generateBtn" onclick="app.generate()">Generate Plans</button>
+      <div class="spinner" id="planSpinner"></div>
+      <div id="planDisplay" style="display:none">
+        <div class="plan-nav">
+          <button onclick="app.prevPlan()">&larr;</button>
+          <span class="plan-label" id="planLabel"></span>
+          <button onclick="app.nextPlan()">&rarr;</button>
+        </div>
+        <div id="planBody"></div>
+      </div>
+      <div id="planError" style="display:none" class="status-bar error"></div>
+    </div>
+  </div>
+</div>
+
+<!-- ===== TREE EDITOR MODAL ===== -->
+<div class="modal-overlay" id="treeModal">
+  <div class="modal">
+    <div class="modal-title">
+      Edit Position Tree
+      <button class="btn btn-primary btn-small" onclick="app.closeTreeEditor()">Done</button>
+    </div>
+    <div id="treeEditorContent"></div>
+    <button class="btn btn-outline btn-full mt-12" onclick="app.addTopGroup()">+ Add Group</button>
+  </div>
+</div>
+
+<!-- ===== POSITION PICKER MODAL ===== -->
+<div class="modal-overlay" id="posPickerModal">
+  <div class="modal">
+    <div class="modal-title">
+      Add Position
+      <button class="btn btn-outline btn-small" onclick="app.closePosPicker()">Cancel</button>
+    </div>
+    <div id="posPickerContent"></div>
+  </div>
+</div>
+
+<!-- ===== BOTTOM TAB BAR ===== -->
+<nav class="tab-bar">
+  <button class="active" onclick="app.switchTab('squads')" id="tab-squads">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87m-4-12a4 4 0 010 7.75"/></svg>
+    Squads
+  </button>
+  <button onclick="app.switchTab('setup')" id="tab-setup">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 00.33 1.82l.06.06a2 2 0 010 2.83 2 2 0 01-2.83 0l-.06-.06a1.65 1.65 0 00-1.82-.33 1.65 1.65 0 00-1 1.51V21a2 2 0 01-4 0v-.09A1.65 1.65 0 009 19.4a1.65 1.65 0 00-1.82.33l-.06.06a2 2 0 01-2.83-2.83l.06-.06A1.65 1.65 0 004.68 15a1.65 1.65 0 00-1.51-1H3a2 2 0 010-4h.09A1.65 1.65 0 004.6 9a1.65 1.65 0 00-.33-1.82l-.06-.06a2 2 0 012.83-2.83l.06.06A1.65 1.65 0 009 4.68a1.65 1.65 0 001-1.51V3a2 2 0 014 0v.09a1.65 1.65 0 001 1.51 1.65 1.65 0 001.82-.33l.06-.06a2 2 0 012.83 2.83l-.06.06A1.65 1.65 0 0019.4 9a1.65 1.65 0 001.51 1H21a2 2 0 010 4h-.09a1.65 1.65 0 00-1.51 1z"/></svg>
+    Setup
+  </button>
+  <button onclick="app.switchTab('players')" id="tab-players">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+    Players
+  </button>
+  <button onclick="app.switchTab('plans')" id="tab-plans">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><line x1="3" y1="9" x2="21" y2="9"/><line x1="9" y1="21" x2="9" y2="9"/></svg>
+    Plans
+  </button>
+</nav>
+
+<script type="module" src="js/app.js"></script>
+</body>
+</html>
